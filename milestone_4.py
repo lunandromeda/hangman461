@@ -1,5 +1,6 @@
 import random
 
+# Defining class
 class Hangman:
     def __init__(self, word_list, num_lives=5):
         self.word_list = word_list
@@ -9,17 +10,24 @@ class Hangman:
         self.num_letters = len(set(self.word))  # Unique letters to be guessed
         self.list_of_guesses = []
 
-    # Step 1: Method to check if the guessed letter is in word
+    # Method to check if guessed letter is in the word
     def check_guess(self, guess):
-        guess = guess.lower()  # Converts the guess to lowercase
+        guess = guess.lower()  # Convert guess to lowercase
         if guess in self.word:
             print(f"Good guess! {guess} is in the word.")
+            # For loop to replace underscores with correct guessed letter
+            for index, letter in enumerate(self.word):
+                if letter == guess:
+                    self.word_guessed[index] = guess  # Replace "_" with guessed letter
+            print(f"Current word: {''.join(self.word_guessed)}")
+            # Reduce the number of unique letters remaining
+            self.num_letters -= 1
         else:
             print(f"Sorry, {guess} is not in the word.")
-            self.num_lives -= 1  # Decrease life for every incorrect guess
+            self.num_lives -= 1  # Decrease life for evry incorrect guess
             print(f"Number of lives left: {self.num_lives}")
     
-    # Step 2: Method to ask for input from the user
+    # Method to ask for input from user
     def ask_for_input(self):
         while True:
             guess = input("Please guess a letter: ")
@@ -29,12 +37,12 @@ class Hangman:
                 print("Invalid letter. Please, enter a single alphabetical character.")
             # Check if the letter was already guessed
             elif guess in self.list_of_guesses:
-                print("You already tried that letter!")
-            # Valid guess
+                print("You have already tried that letter. Try again.")
+            # Valid guess made
             else:
                 self.check_guess(guess)
-                self.list_of_guesses.append(guess)  # Appends guess to the list of guesses
-                break  # Exit the loop after a valid guess is made
+                self.list_of_guesses.append(guess)  # Append guess to list of guesses
+                break  # Exit the loop after a valid guess
 
 # Trying it out
 if __name__ == "__main__":
@@ -43,3 +51,4 @@ if __name__ == "__main__":
     
     print(f"The word is: {''.join(game.word_guessed)}")
     game.ask_for_input()
+
