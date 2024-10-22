@@ -1,11 +1,11 @@
 import random
 
 # List of favourite fruits
-favorite_fruits = ['banana', 'strawberry', 'mango', 'watermelon', 'grapes']
+favourite_fruits = ['banana', 'strawberry', 'mango', 'watermelon', 'grapes']
 
 # Function to choose a random word from favourite fruits
 def select_random_word():
-    return random.choice(favorite_fruits)
+    return random.choice(favourite_fruits)
 
 # Function to check if guessed letter is in the word
 def check_guess(guess, secret_word):
