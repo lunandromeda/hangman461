@@ -7,6 +7,7 @@
   - [Milestone 2](#milestone-2)
   - [Milestone 3](#milestone-3)
   - [Milestone 4](#milestone-4)
+  - [Milestone 5](#milestone-5)
 - [File Structure of the Project](#file-structure-of-the-project)
 - [License](#license)
 
@@ -20,6 +21,7 @@ This is an implementation of the Hangman game, where the computer thinks of a wo
 - In **milestone 2**, we started with a basic game where the user guesses letters from a fixed list of fruits.
 - In **milestone 3**, the game evolved into a Hangman game where a word is chosen, and the user guesses letters until they reveal the whole word or make too many incorrect guesses.
 - In **milestone 4**, the game progresses further by introducing the concept of a class-based structure. 
+- In **milestone 5**, the game adds a full game loop that handles winning and losing conditions, with continuous feedback to the player.
 
 The aim of the project is to reinforce Python concepts, such as:
 - Loops (`while`, `for`)
@@ -60,6 +62,10 @@ python milestone_3.py
 OR
 ```bash
 python milestone_4.py
+```
+OR
+```bash
+python milestone_5.py
 ```
 
 ## Usage
@@ -115,11 +121,48 @@ Sorry, z is not in the word.
 You have 4 lives left.
 ```
 
+### Milestone 5
+In **milestone 5**, a game loop is added that handles the game’s progression from start to finish. The loop continues until the user either guesses the word correctly or runs out of lives. The player receives continuous feedback after each guess.
+
+Features:
+- The game loop tracks lives and the number of letters remaining.
+- The game prompts the user for input until the player wins or loses.
+- If the player guesses all the letters, a "Congratulations" message is shown.
+- If the player runs out of lives, a "You lost!" message is displayed. >.<
+
+**Example Output:**
+```
+The word is: _ _ _ _ _ _
+Please guess a letter: a
+Good guess! a is in the word.
+Current word: _a_a_a
+
+Please guess a letter: z
+Sorry, z is not in the word.
+You have 4 lives left.
+
+...
+
+Congratulations. You won the game!
+``` 
+
+```
+The word is: _ _ _ _ _ _
+Please guess a letter: x
+Sorry, x is not in the word.
+You have 3 lives left.
+
+...
+
+You lost!
+```
+
 ## File Structure of the Project
 ```
 ├── milestone_2.py  # Basic fruit guessing game 
 ├── milestone_3.py  # Hangman game with validation 
 ├── milestone_4.py  # Hangman game with class-based structure
+├── milestone_5.py  # Hangman game with a full game loop
 └── README.md       # Project documentation
 ```
 
